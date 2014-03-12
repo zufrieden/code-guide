@@ -13,12 +13,12 @@ layout: default
       <li><a href="#html-syntax">Syntaxe</a></li>
       <li><a href="#html-doctype">HTML5 doctype</a></li>
       <li><a href="#html-encoding">Encodage</a></li>
-      <li><a href="#html-style-script">Inclusion de CSS et JavaScript</a></li>
-      <li><a href="#html-practicality">Practicality over purity</a></li>
+      <li><a href="#html-style-script">Inclusion des CSS et JavaScript</a></li>
+      <li><a href="#html-practicality">Pratique plutôt que pure</a></li>
       <li><a href="#html-attribute-order">Ordre des attributs</a></li>
       <li><a href="#html-boolean-attributes">Attributs booléens</a></li>
       <li><a href="#html-reducing-markup">Réduction du balisage</a></li>
-      <li><a href="#html-javascript">Balisé généré en JavaScript</a></li>
+      <li><a href="#html-javascript">Code généré en JavaScript</a></li>
     </ul>
   </div>
   <div class="col">
@@ -96,13 +96,13 @@ layout: default
 
 <div class="section" id="html-style-script">
   <div class="col">
-    <h3>CSS and JavaScript includes</h3>
-    <p>Per HTML5 spec, typically there is no need to specify a <code>type</code> when including CSS and JavaScript files as <code>text/css</code> and <code>text/javascript</code> are their respective defaults.</p>
-    <h4>HTML5 spec links</h4>
+    <h3>Inclusion des CSS et JavaScript</h3>
+    <p>Tel que décrit dans les spécifications HTML5, il n'est pas nécessaire d'ajouter les attributs <code>type</code> lors de l'inlcusion des CSS et JavaScript. <code>text/css</code> et <code>text/javascript</code> sont les valeurs par défaut.</p>
+    <h4>Liens sur les spécifications HTML5</h4>
     <ul>
-      <li><a href="http://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-link-element">Using link</a></li>
-      <li><a href="http://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-style-element">Using style</a></li>
-      <li><a href="http://www.w3.org/TR/2011/WD-html5-20110525/scripting-1.html#the-script-element">Using script</a></li>
+      <li><a href="http://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-link-element">Utilisant la balise link [en]</a></li>
+      <li><a href="http://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-style-element">Utilisant la balise style [en]</a></li>
+      <li><a href="http://www.w3.org/TR/2011/WD-html5-20110525/scripting-1.html#the-script-element">Utilisant la balise script [en]</a></li>
     </ul>
   </div>
   <div class="col">
@@ -112,15 +112,15 @@ layout: default
 
 <div class="section" id="html-practicality">
   <div class="col">
-    <h3>Practicality over purity</h3>
-    <p>Strive to maintain HTML standards and semantics, but not at the expense of practicality. Use the least amount of markup with the fewest intricacies whenever possible.</p>
+    <h3>Pratique plutôt que pure</h3>
+    <p>Maintenir la sémantique et les standards HTML oui, mais pas au prix de l'aspect pratique. Utiliser le minimum de balise avec le moins de détail dans la mesure du possible.</p>
   </div>
 </div>
 
 <div class="section" id="html-attribute-order">
   <div class="col">
-    <h3>Attribute order</h3>
-    <p>HTML attributes should come in this particular order for easier reading of code.</p>
+    <h3>Ordre des attributs</h3>
+    <p>Les attributs HTML doivent être ordoné pour une meilleure lecture.</p>
     <ul>
       <li><code>class</code></li>
       <li><code>id</code>, <code>name</code></li>
@@ -129,7 +129,7 @@ layout: default
       <li><code>title</code>, <code>alt</code></li>
       <li><code>aria-*</code>, <code>role</code></li>
     </ul>
-    <p>Classes make for great reusable components, so they come first. Ids are more specific and should be used sparingly (e.g., for in-page bookmarks), so they come second.</p>
+    <p>Les classes sont des composants réutilisable, elles sont donc spécifiées en premier. Viennent ensuite les ids, plus spécifique, ils doivent être utilisés avec parcimonie (par exemple comme navigation interne à la page).</p>
   </div>
   <div class="col">
     {% highlight html %}{% include html/attribute-order.html %}{% endhighlight %}
@@ -138,17 +138,17 @@ layout: default
 
 <div class="section" id="html-boolean-attributes">
   <div class="col">
-    <h3>Boolean attributes</h3>
-    <p>A boolean attribute is one that needs no declared value. XHTML required you to declare a value, but HTML5 has no such requirement.</p>
-    <p>For further reading, consult the <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/common-microsyntaxes.html#boolean-attributes">WhatWG section on boolean attributes</a>:</p>
+    <h3>Attributs booléens</h3>
+    <p>Les attributs booléens n'ont pas besoin d'une valeur déclarée. Avec XHTML, chaque attribut nécessitait une valeure. Avec HTML5, ce n'est plus le cas.</p>
+    <p>Pour plus d'information consultez <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/common-microsyntaxes.html#boolean-attributes">la section concernant les attributs boolén de WhatWG [en]</a>:</p>
     <blockquote>
-      <p>The presence of a boolean attribute on an element represents the true value, and the absence of the attribute represents the false value.</p>
+      <p>La présence d'un attribut booléen dans un élément indique une valeure vrai, son absence indique une valeure fausse.</p>
     </blockquote>
-    <p>If you <em>must</em> include the attribute's value, and <strong>you don't need to</strong>, follow this WhatWG guideline:</p>
+    <p>Dans le cas ou vous <em>devez</em> inclure la valeur de l'attribut et <strong>vous n'avez pas besoin de le faire</strong>, suivez les recommendations de WhatWG :</p>
     <blockquote>
-      <p>If the attribute is present, its value must either be the empty string or [...] the attribute's canonical name, with no leading or trailing whitespace.</p>
+      <p>Si l'attribut est présent, sa valeure doit être une chaine de charactère vide ou [...] le nom de l'attribut sans espace.</p>
     </blockquote>
-    <p><strong>In short, don't add a value.</strong></p>
+    <p><strong>En résumé, pas de valeur.</strong></p>
   </div>
   <div class="col">
     {% highlight html %}{% include html/boolean-attributes.html %}{% endhighlight %}
@@ -157,8 +157,8 @@ layout: default
 
 <div class="section" id="html-reducing-markup">
   <div class="col">
-    <h3>Reducing markup</h3>
-    <p>Whenever possible, avoid superfluous parent elements when writing HTML. Many times this requires iteration and refactoring, but produces less HTML. Take the following example:</p>
+    <h3>Réduction du balisage</h3>
+    <p>Lorsque c'est possible, éviter les éléments parents superflus. Écrire moins d'HTML évite les problèmes de maintenance. Comme dans l'exemple suivant :</p>
   </div>
   <div class="col">
     {% highlight html %}{% include html/reducing-markup.html %}{% endhighlight %}
@@ -167,8 +167,8 @@ layout: default
 
 <div class="section" id="html-javascript">
   <div class="col">
-    <h3>JavaScript generated markup</h3>
-    <p>Writing markup in a JavaScript file makes the content harder to find, harder to edit, and less performant. Avoid it whenever possible.</p>
+    <h3>Code généré en JavaScript</h3>
+    <p>Produire des balises via JavaScript rends le contenu difficile à trouver, à éditer et réduit les performances. Á éviter si possible.</p>
   </div>
 </div>
 
